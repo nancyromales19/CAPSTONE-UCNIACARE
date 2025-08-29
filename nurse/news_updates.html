@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News and Update</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="news_updates.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button class="hamburger" id="hamburger">☰</button>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="../images/dark_logo.png" alt="Logo">
+      </div>
+
+      <!-- Menu -->
+      <nav class="menu">
+        <ul>
+          <li><a href="dashboard_nurse.html"><i class = "fa-solid fa-house"></i>Dashboard</a></li>
+          <li><a href="patient_nurse.html"><i class = "fa-solid fa-users"></i>Patients</a></li>
+          <li><a href="inventory_nurse.html"><i class = "fa-solid fa-box"></i>Inventory</a></li>
+          <li><a href="reports_nurse.html"><i class = "fa-solid fa-file-lines"></i>Reports</a></li>
+          <li><a href="settings_nurse.html"><i class = "fa-solid fa-gear"></i>Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+      <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header Section -->
+      <header class="header">
+        <h1 class="page_title">News & Updates</h1>
+        
+        <div class="header-right">
+          <!-- Notification Icon -->
+          <div class="notification-icon">
+            <i class="fa-solid fa-bell"></i>
+            <span class="badge"></span>
+          </div>
+          
+          <!-- User Profile -->
+          <div class="user-profile">
+            <div class="user-avatar">HS</div>
+            <div class="user-info">
+              <p class="user-name">User fullname</p>
+              <p class="user-role">User role</p>
+            </div>
+          </div>
+        </div>
+      </header>
+        
+       <!-- Back Button Section -->
+      <div class="back-section">
+        <button class="back-btn" onclick="window.location.href='dashboard_nurse.html'">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Dashboard</span>
+        </button>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <button class="filter-btn active" onclick="filterCards('all')">All Updates</button>
+        <button class="filter-btn" onclick="filterCards('mental-health')">Mental Health</button>
+        <button class="filter-btn" onclick="filterCards('oral-health')">Oral Health</button>
+        <button class="filter-btn" onclick="filterCards('diabetes')">Diabetes Care</button>
+        <button class="filter-btn" onclick="filterCards('preventive')">Preventive Care</button>
+      </div>
+
+      <!-- News Grid -->
+      <div class="news-grid">
+        
+        <!-- Mental Health Awareness Card -->
+        <div class="news-card" data-category="mental-health">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">It's Okay to be not Okay</h3>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-illustration mental-health">
+              <img src="" alt="image">
+            </div>
+            <div class="card-text">
+              <p class="card-description">
+                Managing diabetes can be overwhelming. It's normal to feel frustrated sometimes. 
+                Remember that seeking help is a sign of strength, not weakness.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card-footer">
+            <span class="card-date">Updated today</span>
+            <button class="see-more">
+              <span>See More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Oral Health Card -->
+        <div class="news-card" data-category="oral-health">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Tips to Prevent Oral Diseases</h3>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-illustration oral-health">
+              <i class="fa-solid fa-tooth"></i>
+            </div>
+            <div class="card-text">
+              <p class="card-description">
+                Brush your teeth daily with fluoride toothpaste. Limit free sugars intake. 
+                Stop using all forms of tobacco and reduce alcohol consumption.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card-footer">
+            <span class="card-date">Updated today</span>
+            <button class="see-more">
+              <span>See More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Diabetes Care Card -->
+        <div class="news-card" data-category="diabetes">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Diabetes Management Tips</h3>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-illustration diabetes-care">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="card-text">
+              <p class="card-description">
+                Monitor blood glucose regularly, maintain a healthy diet, exercise regularly, 
+                and take medications as prescribed by your healthcare provider.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card-footer">
+            <span class="card-date">2 days ago</span>
+            <button class="see-more">
+              <span>See More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Preventive Care Card -->
+        <div class="news-card" data-category="preventive">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Preventive Health Screening</h3>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <div class="card-illustration preventive-care">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div class="card-text">
+              <p class="card-description">
+                Regular health screenings can help detect health problems early when they're 
+                easier to treat. Schedule your annual check-up today.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card-footer">
+            <span class="card-date">1 week ago</span>
+            <button class="see-more">
+              <span>See More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

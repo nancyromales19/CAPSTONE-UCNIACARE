@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Example</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="settings_nurse.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button class="hamburger" id="hamburger">☰</button>
+
+  <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="../images/dark_logo.png" alt="Logo">
+        </div>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <ul>
+            <li><a href="dashboard_nurse.html"><i class = "fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="patient_nurse.html"><i class = "fa-solid fa-users"></i>Patients</a></li>
+            <li><a href="inventory_nurse.html"><i class = "fa-solid fa-box"></i>Inventory</a></li>
+            <li><a href="reports_nurse.html"><i class = "fa-solid fa-file-lines"></i>Reports</a></li>
+            <li><a href="settings_nurse.html"><i class = "fa-solid fa-gear"></i>Settings</a></li>
+            </ul>
+        </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="page_title">Settings</h1>
+            
+            <div class="header-right">
+            <!-- Notification Icon -->
+            <div class="notification-icon">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge"></span>
+            </div>
+            
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">HS</div>
+                <div class="user-info">
+                <p class="user-name">User fullname</p>
+                <p class="user-role">User role</p>
+                </div>
+            </div>
+            </div>
+        </header>
+
+        <!-- Image Placeholder Container -->
+        <div class="image-placeholder-container">
+            <!-- Cover Photo Section (Top Half) -->
+            <div class="cover-photo-section">
+                <!-- This is where to put an <img> here OR change the background -->
+                <!--<img src="" alt="Cover Photo" class="cover-photo" /> -->
+
+                <button class="update-cover-btn">
+                    <i class="fa-solid fa-camera"></i>
+                    Update Cover
+                </button>
+            </div>
+            
+            <!-- Profile Section (Bottom Half) -->
+            <div class="profile-section">
+                <div class="profile-picture-container">
+                    <div class="profile-picture-placeholder">
+                        <i class="fa-solid fa-user"></i>
+                        <button class="edit-profile-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+              <!-- Settings Container -->
+        <div class="settings-container">
+            <!-- Hidden Radio Buttons -->
+            <input type="radio" id="account-tab" name="settings-tab" checked hidden>
+            <input type="radio" id="general-tab" name="settings-tab" hidden>
+            
+            <!-- Settings Tabs -->
+            <div class="settings-tabs">
+                <label for="account-tab" class="tab-button">Account Settings</label>
+                <label for="general-tab" class="tab-button">General Settings</label>
+            </div>
+
+            <!-- Account Settings Content -->
+            <div class="settings-content" id="account-content">
+                <div class="section-header">
+                    <h2 class="section-title">Personal Information</h2>
+                    <button class="edit-settings-btn">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit Settings
+                    </button>
+                </div>
+
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                        <div class="form-group small">
+                            <label class="form-label">Middle I.</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <input type="tel" class="form-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">License Number</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Position</label>
+                            <input type="text" class="form-input" value="">
+                        </div>
+                    </div>
+
+                    <div class="password-section">
+                        <h2 class="password-title">Change Password ?</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-input" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-input" value="">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ✅ General Settings Content moved INSIDE .settings-container -->
+            <div class="settings-content" id="general-content">
+                <div class="settings-section">
+                    <h2 class="settings-section-title">Language & Region</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Language</label>
+                            <select class="form-input">
+                                <option>English (US)</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                                <option>German</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Time Zone</label>
+                            <select class="form-input">
+                                <option>Eastern Time (ET)</option>
+                                <option>Central Time (CT)</option>
+                                <option>Mountain Time (MT)</option>
+                                <option>Pacific Time (PT)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2 class="settings-section-title">Application Appearance</h2>
+                    
+                    <div class="toggle-row">
+                        <label class="toggle-label">Turn on Dark Mode</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-label">Use a Dyslexia Friendly Font</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-label">High Contrast UI</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Font Size</label>
+                            <select class="form-input">
+                                <option>Small</option>
+                                <option selected>Medium (Recommended)</option>
+                                <option>Large</option>
+                                <option>Extra Large</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <!-- Empty div to maintain layout -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </main>
+  </div>
+
+</body>
+</html>
