@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patients Check-in - Staff</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="./patients_staff.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="container">
+    <aside class="sidebar" id="sidenav">
+      <div class="logo" id="logo">
+        <img src="../images/dark_logo.png" alt="UCNIACARE Logo" id="logo-img" />
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li><a href="#" id="nav-dashboard"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+          <li><a href="patients_staff.html" id="nav-patients" style="background:#e6f0ff;color:#0056b3;"><i class="fa-solid fa-users"></i>Patients</a></li>
+          <li><a href="inventory_staff.html" id="nav-inventory"><i class="fa-solid fa-box"></i>Inventory</a></li>
+          <li><a href="#" id="nav-settings"><i class="fa-solid fa-gear"></i>Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+      <header class="header">
+        <h1 class="page_title">Patient</h1>
+        
+        <div class="header-right">
+          <!-- Notification Icon -->
+          <div class="notification-icon">
+            <i class="fa-solid fa-bell"></i>
+            <span class="badge"></span>
+          </div>
+          
+          <!-- User Profile -->
+          <div class="user-profile">
+            <div class="user-avatar">ST</div>
+            <div class="user-info">
+              <p class="user-name">Staff User</p>
+              <p class="user-role">Front Desk</p>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="content" id="patients-content">
+        <nav id="patients-tabs">
+          <a href="#" id="tab-checkin" class="active">Check - in</a>
+          <a href="#" id="tab-cliniclogs">Clinic-Logs</a>
+          <a href="#" id="tab-referral">Referral</a>
+          <a href="#" id="tab-basic">Basic Assessment</a>
+        </nav>
+
+        <section class="card" id="queue-card">
+          <div class="queue-top" id="queue-top">
+            <h2 id="queue-title">Queue</h2>
+            <div class="queue-actions" id="queue-actions">
+              <a href="#checkin-modal" id="open-checkin" class="green-btn">Check -in</a>
+              <div class="search" id="queue-search">
+                <input type="text" id="search-patient" placeholder="Patient Name" />
+                <button id="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrapper" id="queue-wrapper">
+            <table id="queue-table">
+              <thead>
+                <tr>
+                  <th id="col-patient">Patient</th>
+                  <th id="col-queueno">Queue no.</th>
+                  <th id="col-purpose">Purpose</th>
+                  <th id="col-type">Type</th>
+                  <th id="col-action">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nick Young</td>
+                  <td>01</td>
+                  <td>Consultation</td>
+                  <td>Appointment</td>
+                  <td><button class="icon-btn" id="act-1"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Encho Lee</td>
+                  <td>N/A</td>
+                  <td>Consultation</td>
+                  <td>Walk - in</td>
+                  <td><button class="icon-btn" id="act-2"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Gwen Fiel</td>
+                  <td>02</td>
+                  <td>Consultation</td>
+                  <td>Walk - in</td>
+                  <td><button class="icon-btn" id="act-3"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Kim Jisoo</td>
+                  <td>03</td>
+                  <td>Intramurals</td>
+                  <td>Walk - in</td>
+                  <td><button class="icon-btn" id="act-4"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Wincy Yee</td>
+                  <td>04</td>
+                  <td>Physical Exam.</td>
+                  <td>Walk - in</td>
+                  <td><button class="icon-btn" id="act-5"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Nancy Romales</td>
+                  <td>05</td>
+                  <td>Follow - up</td>
+                  <td>Appointment</td>
+                  <td><button class="icon-btn" id="act-6"><i class="fa-solid fa-user-plus"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <!-- Clinic Logs Section -->
+        <section class="card" id="clinic-logs-card" style="display: none;">
+          <div class="logs-header" id="logs-header">
+            <h2 id="logs-title">Logs</h2>
+            <div class="logs-actions" id="logs-actions">
+              <div class="search" id="logs-search">
+                <input type="text" id="search-logs" placeholder="Search" />
+                <button id="logs-search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+              <button class="filter-btn" id="filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Section -->
+          <div class="filter-section" id="filter-section" style="display: none;">
+            <div class="filter-row">
+              <div class="filter-group">
+                <label for="filter-users">All Users</label>
+                <select id="filter-users" class="filter-select">
+                  <option value="">All Users</option>
+                  <option value="nick">Nick Young</option>
+                  <option value="encho">Encho Lee</option>
+                  <option value="gwen">Gwen Fiel</option>
+                  <option value="kim">Kim Jisoo</option>
+                  <option value="wincy">Wincy Yee</option>
+                  <option value="nancy">Nancy Romales</option>
+                </select>
+              </div>
+              
+              <div class="filter-group">
+                <label for="filter-date">Date & Time</label>
+                <select id="filter-date" class="filter-select">
+                  <option value="">All Dates</option>
+                  <option value="today">Today</option>
+                  <option value="yesterday">Yesterday</option>
+                  <option value="week">This Week</option>
+                  <option value="month">This Month</option>
+                  <option value="custom">Custom Range</option>
+                </select>
+              </div>
+              
+              <div class="filter-group">
+                <label for="filter-status">All Status</label>
+                <select id="filter-status" class="filter-select">
+                  <option value="">All Status</option>
+                  <option value="ongoing">Ongoing</option>
+                  <option value="completed">Completed</option>
+                  <option value="referred">Referred</option>
+                  <option value="absent">Absent</option>
+                </select>
+              </div>
+              
+              <div class="filter-group">
+                <label for="filter-affiliation">All Affiliation</label>
+                <select id="filter-affiliation" class="filter-select">
+                  <option value="">All Affiliation</option>
+                  <option value="bsit">BSIT</option>
+                  <option value="bshm">BSHM</option>
+                  <option value="bscs">BSCS</option>
+                  <option value="beed">BEED</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="filter-actions">
+              <button type="button" id="apply-filter" class="apply-filter-btn">Apply Filter</button>
+              <button type="button" id="close-filter" class="close-filter-btn">Close</button>
+            </div>
+          </div>
+
+          <div class="table-wrapper" id="logs-wrapper">
+            <table id="logs-table">
+              <thead>
+                <tr>
+                  <th id="col-patient-logs">Patient</th>
+                  <th id="col-course">Course & Yr</th>
+                  <th id="col-purpose-logs">Purpose</th>
+                  <th id="col-status">Status</th>
+                  <th id="col-action-logs">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nick Young</td>
+                  <td>BSIT - 4</td>
+                  <td>Consultation</td>
+                  <td><span class="status-badge ongoing">Ongoing</span></td>
+                  <td><button class="view-btn" id="view-1">View</button></td>
+                </tr>
+                <tr>
+                  <td>Encho Lee</td>
+                  <td>BSHM - 1</td>
+                  <td>Consultation</td>
+                  <td><span class="status-badge ongoing">Ongoing</span></td>
+                  <td><button class="view-btn" id="view-2">View</button></td>
+                </tr>
+                <tr>
+                  <td>Gwen Fiel</td>
+                  <td>BSIT - 2</td>
+                  <td>Consultation</td>
+                  <td><span class="status-badge completed">Completed</span></td>
+                  <td><button class="view-btn" id="view-3">View</button></td>
+                </tr>
+                <tr>
+                  <td>Kim Jisoo</td>
+                  <td>BSCS - 4</td>
+                  <td>Intramurals</td>
+                  <td><span class="status-badge referred">Referred</span></td>
+                  <td><button class="view-btn" id="view-4">View</button></td>
+                </tr>
+                <tr>
+                  <td>Wincy Yee</td>
+                  <td>BEED - 1</td>
+                  <td>Physical Exam.</td>
+                  <td><span class="status-badge ongoing">Ongoing</span></td>
+                  <td><button class="view-btn" id="view-5">View</button></td>
+                </tr>
+                <tr>
+                  <td>Nancy Romales</td>
+                  <td>BSHM - 4</td>
+                  <td>Consultation</td>
+                  <td><span class="status-badge absent">Absent</span></td>
+                  <td><button class="view-btn" id="view-6">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <!-- Referral Section -->
+        <section class="card" id="referral-card" style="display: none;">
+          <div class="referral-header">
+            <h2>Referral</h2>
+          </div>
+          <nav class="referral-tabs" id="referral-tabs">
+            <a href="#" id="ref-tab-create" class="active">Create</a>
+            <a href="#" id="ref-tab-pending">Pending</a>
+            <a href="#" id="ref-tab-approved">Approved</a>
+          </nav>
+
+          <!-- Create Referral Form -->
+          <div id="referral-create" class="referral-panel" style="display: block;">
+            <form id="referral-form" autocomplete="off">
+              <div class="ref-row">
+                <label class="ref-label">Purpose for Referral :</label>
+                <select class="ref-select" id="ref-purpose">
+                  <option value="" selected>Referral Purpose</option>
+                  <option value="laboratory">Laboratory Request</option>
+                  <option value="specialist">Specialist Consultation</option>
+                  <option value="imaging">Imaging / X-ray</option>
+                </select>
+              </div>
+
+              <div class="ref-grid-3">
+                <div class="ref-field">
+                  <label class="ref-label">Name :</label>
+                  <input class="ref-input" id="ref-name" type="text" placeholder="Enter Patient Name" />
+                </div>
+                <div class="ref-field">
+                  <label class="ref-label">Age :</label>
+                  <input class="ref-input" id="ref-age" type="number" placeholder="" />
+                </div>
+                <div class="ref-field">
+                  <label class="ref-label">Sex :</label>
+                  <select class="ref-select" id="ref-sex">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="ref-row">
+                <label class="ref-label">Address :</label>
+                <input class="ref-input" id="ref-address" type="text" placeholder="" />
+              </div>
+
+              <div class="ref-row">
+                <label class="ref-label">Referred to :</label>
+                <input class="ref-input" id="ref-to" type="text" placeholder="Enter Hospital / Clinic Name" />
+              </div>
+
+              <div class="ref-request">
+                <label class="ref-label">Request for :</label>
+                <div class="ref-checkbox-grid">
+                  <label class="ref-check"><input type="checkbox" value="cxr"> Chest X-ray PA Viewer</label>
+                  <label class="ref-check"><input type="checkbox" value="hbsag"> HBS Ag</label>
+                  <label class="ref-check"><input type="checkbox" value="urinalysis"> Urinalysis</label>
+                  <label class="ref-check"><input type="checkbox" value="fecalysis"> Fecalysis</label>
+                  <label class="ref-check"><input type="checkbox" value="cbc"> CBC</label>
+                  <label class="ref-check"><input type="checkbox" value="ecg"> ECG</label>
+                  <label class="ref-check"><input type="checkbox" value="drugtest"> Drug Test</label>
+                </div>
+              </div>
+
+              <div class="ref-row">
+                <label class="ref-label">Other :</label>
+                <select class="ref-select" id="ref-other">
+                  <option value="" selected>Other Laboratory</option>
+                  <option value="sugar">Blood Sugar</option>
+                  <option value="lipid">Lipid Profile</option>
+                </select>
+              </div>
+
+              <div class="ref-actions">
+                <button type="button" id="ref-submit" class="ref-submit">SUBMIT FOR APPROVAL</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Pending List -->
+          <div id="referral-pending" class="referral-panel" style="display: none;">
+            <div class="table-wrapper">
+              <table id="referral-table-pending">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+                    <th>Purpose</th>
+                    <th>Referred To</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nancy Romales</td>
+                    <td>Laboratory Request</td>
+                    <td>City Hospital</td>
+                    <td><span class="status-badge referred">Pending</span></td>
+                    <td><button class="view-btn">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Approved List -->
+          <div id="referral-approved" class="referral-panel" style="display: none;">
+            <div class="table-wrapper">
+              <table id="referral-table-approved">
+                <thead>
+                  <tr>
+                    <th>Patient</th>
+                    <th>Purpose</th>
+                    <th>Referred To</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nick Young</td>
+                    <td>Imaging / X-ray</td>
+                    <td>Radiology Center</td>
+                    <td><span class="status-badge completed">Approved</span></td>
+                    <td><button class="view-btn">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Check-in Modal (CSS-only via :target) -->
+        <div id="checkin-modal" class="modal-overlay">
+          <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+            <a href="#" class="modal-close" id="modal-close" aria-label="Close">&times;</a>
+            <h3 class="modal-title" id="modal-title">Patient Check - In</h3>
+            <div id="search-section">
+              <p class="modal-subtext" id="modal-subtext">Enter Patient ID number to search</p>
+              <form id="checkin-search-form" action="#">
+                <div class="modal-search" id="modal-search">
+                  <input type="text" id="checkin-id" placeholder="ID Number" />
+                  <button type="button" id="modal-search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+              </form>
+            </div>
+            
+            <div id="patient-section" style="display: none;">
+              <div class="patient-info" id="patient-info">
+                <h4 class="section-title" id="patient-info-title">Patient Information</h4>
+                <div class="patient-details" id="patient-details">
+                  <div class="patient-avatar" id="patient-avatar">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                  <div class="patient-text" id="patient-text">
+                    <p><strong>NAME:</strong> <span id="patient-name">Nancy Romales</span></p>
+                    <p><strong>COURSE & YR:</strong> <span id="patient-course">BSIT - 4</span></p>
+                    <p><strong>AGE:</strong> <span id="patient-age">21</span></p>
+                    <p><strong>SEX:</strong> <span id="patient-sex">FEMALE</span></p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="purpose-section" id="purpose-section">
+                <h4 class="section-title" id="purpose-title">Purpose of Visit</h4>
+                <select id="purpose-select">
+                  <option value="">Select Purpose of Visit</option>
+                  <option value="consultation">Consultation</option>
+                  <option value="follow-up">Follow-up</option>
+                  <option value="physical-exam">Physical Examination</option>
+                  <option value="sick-leave">Sick Leave</option>
+                  <option value="intramurals">Intramurals</option>
+                </select>
+              </div>
+              
+              <div class="modal-actions" id="modal-actions">
+                <button type="button" id="btn-cancel" class="btn-cancel">CANCEL</button>
+                <a href="#guardian-modal" id="btn-next" class="btn-next">NEXT</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Guardian & Medical Documents Modal -->
+        <div id="guardian-modal" class="modal-overlay">
+          <div class="modal-dialog guardian-dialog" role="dialog" aria-labelledby="guardian-title" aria-modal="true">
+            <a href="#" class="modal-close" id="guardian-close" aria-label="Close">&times;</a>
+            <h3 class="modal-title" id="guardian-title">Patient Check - In</h3>
+            
+            <div class="guardian-section" id="guardian-section">
+              <h4 class="section-title" id="guardian-question">Is the patient with a guardian ?</h4>
+              <div class="radio-group" id="guardian-radio">
+                <label><input type="radio" name="guardian" value="yes" id="guardian-yes" /> Yes</label>
+                <label><input type="radio" name="guardian" value="no" id="guardian-no" /> No</label>
+              </div>
+              
+              <div id="guardian-details" style="display: none;">
+                <h4 class="section-title" id="guardian-details-title">Guardian Information</h4>
+                <div class="guardian-inputs" id="guardian-inputs">
+                  <input type="text" id="guardian-name" placeholder="Guardian Name" />
+                  <input type="text" id="guardian-relationship" placeholder="Relationship" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="documents-section" id="documents-section">
+              <h4 class="section-title" id="documents-question">Does the patient have any medical documents to share ?</h4>
+              <div class="radio-group" id="documents-radio">
+                <label><input type="radio" name="documents" value="yes" id="documents-yes" /> Yes</label>
+                <label><input type="radio" name="documents" value="no" id="documents-no" /> No</label>
+              </div>
+              
+              <div id="upload-section" style="display: none;">
+                <h4 class="section-title" id="upload-title">Upload Documents here</h4>
+                <div class="upload-area" id="upload-area">
+                  <i class="fa-solid fa-arrow-up"></i>
+                  <p>Upload Documents here</p>
+                  <button type="button" id="choose-files">Choose Files</button>
+                  <p class="file-types">PDF, PNG, JPG, DOC, DOCX</p>
+                </div>
+                <div class="uploaded-files" id="uploaded-files">
+                  <h5>Uploaded Documents (1)</h5>
+                  <div class="file-item" id="file-item">
+                    <i class="fa-solid fa-file"></i>
+                    <span>lab_results.png</span>
+                    <span class="file-size">73.8 KB</span>
+                    <button type="button" class="remove-file" id="remove-file">&times;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="modal-actions" id="guardian-actions">
+              <a href="#checkin-modal" id="btn-back" class="btn-back">BACK</a>
+              <button type="button" id="btn-checkin-final" class="btn-checkin-final">CHECK - IN</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Success Message Modal -->
+        <div id="success-modal" class="modal-overlay success-overlay">
+          <div class="modal-dialog success-dialog" role="dialog" aria-labelledby="success-title" aria-modal="true">
+            <div class="success-content">
+              <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <h3 class="success-title" id="success-title">Patient Checked - In Successfully!</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    // Tab switching functionality
+    document.getElementById('tab-checkin').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Update active tab
+      document.querySelectorAll('#patients-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show queue section, hide clinic logs and referral
+      document.getElementById('queue-card').style.display = 'block';
+      document.getElementById('clinic-logs-card').style.display = 'none';
+      document.getElementById('referral-card').style.display = 'none';
+    });
+    
+    document.getElementById('tab-cliniclogs').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Update active tab
+      document.querySelectorAll('#patients-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show clinic logs section, hide queue and referral
+      document.getElementById('clinic-logs-card').style.display = 'block';
+      document.getElementById('queue-card').style.display = 'none';
+      document.getElementById('referral-card').style.display = 'none';
+    });
+    
+    document.getElementById('tab-referral').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Update active tab
+      document.querySelectorAll('#patients-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show referral section, hide others
+      document.getElementById('referral-card').style.display = 'block';
+      document.getElementById('clinic-logs-card').style.display = 'none';
+      document.getElementById('queue-card').style.display = 'none';
+    });
+
+    // Referral inner tabs
+    document.getElementById('ref-tab-create').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelectorAll('#referral-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('referral-create').style.display = 'block';
+      document.getElementById('referral-pending').style.display = 'none';
+      document.getElementById('referral-approved').style.display = 'none';
+    });
+    document.getElementById('ref-tab-pending').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelectorAll('#referral-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('referral-create').style.display = 'none';
+      document.getElementById('referral-pending').style.display = 'block';
+      document.getElementById('referral-approved').style.display = 'none';
+    });
+    document.getElementById('ref-tab-approved').addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelectorAll('#referral-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('referral-create').style.display = 'none';
+      document.getElementById('referral-pending').style.display = 'none';
+      document.getElementById('referral-approved').style.display = 'block';
+    });
+    
+    // Reset modal to search state when opened
+    document.getElementById('open-checkin').addEventListener('click', function() {
+      // Reset modal to show search section first
+      document.getElementById('search-section').style.display = 'block';
+      document.getElementById('patient-section').style.display = 'none';
+      
+      // Clear any previous input
+      document.getElementById('checkin-id').value = '';
+    });
+    
+    // Show patient section after search
+    document.getElementById('modal-search-btn').addEventListener('click', function() {
+      const patientId = document.getElementById('checkin-id').value.trim();
+      
+      if (patientId === '') {
+        alert('Please enter a Patient ID number');
+        return;
+      }
+      
+      document.getElementById('search-section').style.display = 'none';
+      document.getElementById('patient-section').style.display = 'block';
+    });
+    
+    // Show guardian details if yes
+    document.getElementById('guardian-yes').addEventListener('change', function() {
+      document.getElementById('guardian-details').style.display = 'block';
+    });
+    
+    document.getElementById('guardian-no').addEventListener('change', function() {
+      document.getElementById('guardian-details').style.display = 'none';
+    });
+    
+    // Show upload section if yes
+    document.getElementById('documents-yes').addEventListener('change', function() {
+      document.getElementById('upload-section').style.display = 'block';
+      document.getElementById('uploaded-files').style.display = 'block';
+    });
+    
+    document.getElementById('documents-no').addEventListener('change', function() {
+      document.getElementById('upload-section').style.display = 'none';
+      document.getElementById('uploaded-files').style.display = 'none';
+    });
+    
+    // Show success message and auto-hide after 2.5 seconds
+    document.getElementById('btn-checkin-final').addEventListener('click', function() {
+      console.log('CHECK - IN button clicked!'); // Debug log
+      
+      // Hide the guardian modal
+      document.getElementById('guardian-modal').style.display = 'none';
+      
+      // Show success modal
+      document.getElementById('success-modal').style.display = 'flex';
+      
+      // Auto-hide after 2.5 seconds
+      setTimeout(function() {
+        document.getElementById('success-modal').style.display = 'none';
+        // Reset to main page
+        window.location.hash = '';
+      }, 2500);
+    });
+    
+    // Alternative way to ensure the button works
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkinBtn = document.getElementById('btn-checkin-final');
+      if (checkinBtn) {
+        console.log('CHECK - IN button found!'); // Debug log
+        checkinBtn.addEventListener('click', function() {
+          console.log('CHECK - IN button clicked via DOMContentLoaded!'); // Debug log
+          
+          // Hide the guardian modal
+          document.getElementById('guardian-modal').style.display = 'none';
+          
+          // Show success modal
+          document.getElementById('success-modal').style.display = 'flex';
+          
+          // Auto-hide after 2.5 seconds
+          setTimeout(function() {
+            document.getElementById('success-modal').style.display = 'none';
+            // Reset to main page
+            window.location.hash = '';
+          }, 2500);
+        });
+      } else {
+        console.log('CHECK - IN button NOT found!'); // Debug log
+      }
+      
+      // Filter functionality
+      const applyFilterBtn = document.getElementById('apply-filter');
+      if (applyFilterBtn) {
+        applyFilterBtn.addEventListener('click', function() {
+          applyFilters();
+        });
+      }
+      // Referral filter functionality
+      const applyFilterBtnRef = document.getElementById('apply-filter-ref');
+      if (applyFilterBtnRef) {
+        applyFilterBtnRef.addEventListener('click', function() {
+          applyReferralFilters();
+        });
+      }
+      
+      // Filter button functionality
+      const filterBtn = document.getElementById('filter-btn');
+      if (filterBtn) {
+        filterBtn.addEventListener('click', function() {
+          const filterSection = document.getElementById('filter-section');
+          if (filterSection.style.display === 'none') {
+            filterSection.style.display = 'block';
+          } else {
+            filterSection.style.display = 'none';
+          }
+        });
+      }
+      // Referral filter button functionality
+      const filterBtnRef = document.getElementById('filter-btn-ref');
+      if (filterBtnRef) {
+        filterBtnRef.addEventListener('click', function() {
+          const filterSectionRef = document.getElementById('filter-section-ref');
+          if (filterSectionRef.style.display === 'none') {
+            filterSectionRef.style.display = 'block';
+          } else {
+            filterSectionRef.style.display = 'none';
+          }
+        });
+      }
+      
+      // Close filter button functionality
+      const closeFilterBtn = document.getElementById('close-filter');
+      if (closeFilterBtn) {
+        closeFilterBtn.addEventListener('click', function() {
+          document.getElementById('filter-section').style.display = 'none';
+        });
+      }
+      // Close referral filter button functionality
+      const closeFilterBtnRef = document.getElementById('close-filter-ref');
+      if (closeFilterBtnRef) {
+        closeFilterBtnRef.addEventListener('click', function() {
+          document.getElementById('filter-section-ref').style.display = 'none';
+        });
+      }
+    });
+    
+    // Filter function
+    function applyFilters() {
+      const userFilter = document.getElementById('filter-users').value;
+      const dateFilter = document.getElementById('filter-date').value;
+      const statusFilter = document.getElementById('filter-status').value;
+      const affiliationFilter = document.getElementById('filter-affiliation').value;
+      
+      const tableRows = document.querySelectorAll('#logs-table tbody tr');
+      
+      tableRows.forEach(row => {
+        let showRow = true;
+        
+        // Filter by user (patient name)
+        if (userFilter && userFilter !== '') {
+          const patientName = row.cells[0].textContent.toLowerCase();
+          if (!patientName.includes(userFilter.toLowerCase())) {
+            showRow = false;
+          }
+        }
+        
+        // Filter by status
+        if (statusFilter && statusFilter !== '') {
+          const statusElement = row.querySelector('.status-badge');
+          if (statusElement) {
+            const status = statusElement.textContent.toLowerCase();
+            if (status !== statusFilter.toLowerCase()) {
+              showRow = false;
+            }
+          }
+        }
+        
+        // Filter by affiliation (course)
+        if (affiliationFilter && affiliationFilter !== '') {
+          const course = row.cells[1].textContent.toLowerCase();
+          if (!course.includes(affiliationFilter.toLowerCase())) {
+            showRow = false;
+          }
+        }
+        
+        // Show/hide row based on filters
+        row.style.display = showRow ? 'table-row' : 'none';
+      });
+      
+      // Show filter results message
+      const visibleRows = document.querySelectorAll('#logs-table tbody tr:not([style*="display: none"])');
+      console.log(`Filter applied: ${visibleRows.length} results found`);
+    }
+    
+    // Reset filters function
+    function resetFilters() {
+      document.getElementById('filter-users').value = '';
+      document.getElementById('filter-date').value = '';
+      document.getElementById('filter-status').value = '';
+      document.getElementById('filter-affiliation').value = '';
+      
+      // Show all rows
+      const tableRows = document.querySelectorAll('#logs-table tbody tr');
+      tableRows.forEach(row => {
+        row.style.display = 'table-row';
+      });
+    }
+
+    // Referral filter function
+    function applyReferralFilters() {
+      const userFilter = document.getElementById('filter-users-ref').value;
+      const statusFilter = document.getElementById('filter-status-ref').value;
+      const affiliationFilter = document.getElementById('filter-affiliation-ref').value;
+
+      const tableRows = document.querySelectorAll('#referral-table tbody tr');
+
+      tableRows.forEach(row => {
+        let showRow = true;
+
+        // Filter by user (patient name)
+        if (userFilter && userFilter !== '') {
+          const patientName = row.cells[0].textContent.toLowerCase();
+          if (!patientName.includes(userFilter.toLowerCase())) {
+            showRow = false;
+          }
+        }
+
+        // Filter by status
+        if (statusFilter && statusFilter !== '') {
+          const statusElement = row.querySelector('.status-badge');
+          if (statusElement) {
+            const status = statusElement.textContent.toLowerCase();
+            if (status !== statusFilter.toLowerCase()) {
+              showRow = false;
+            }
+          }
+        }
+
+        // Filter by affiliation (course)
+        if (affiliationFilter && affiliationFilter !== '') {
+          const course = row.cells[1].textContent.toLowerCase();
+          if (!course.includes(affiliationFilter.toLowerCase())) {
+            showRow = false;
+          }
+        }
+
+        // Show/hide row based on filters
+        row.style.display = showRow ? 'table-row' : 'none';
+      });
+
+      const visibleRows = document.querySelectorAll('#referral-table tbody tr:not([style*="display: none"])');
+      console.log(`Referral filter applied: ${visibleRows.length} results found`);
+    }
+  </script>
+</body>
+</html>
+
+
