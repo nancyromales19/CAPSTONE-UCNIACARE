@@ -381,10 +381,17 @@
                 <tbody>
                   <tr>
                     <td>Nick Young</td>
+                    <td>Laboratory Request</td>
+                    <td>City Medical Center</td>
+                    <td><span class="status-badge completed">Approved</span></td>
+                    <td><button class="view-btn" onclick="showReferralSlip('Nick Young', 'Laboratory Request', 'City Medical Center', ['Urinalysis', 'CBC'])">View</button></td>
+                  </tr>
+                  <tr>
+                    <td>Gwen Fiel</td>
                     <td>Imaging / X-ray</td>
                     <td>Radiology Center</td>
                     <td><span class="status-badge completed">Approved</span></td>
-                    <td><button class="view-btn">View</button></td>
+                    <td><button class="view-btn" onclick="showReferralSlip('Gwen Fiel', 'Imaging / X-ray', 'Radiology Center', ['Chest X-ray PA View'])">View</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -507,6 +514,33 @@
                 <i class="fa-solid fa-check"></i>
               </div>
               <h3 class="success-title" id="success-title">Patient Checked - In Successfully!</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Referral Success Message Modal -->
+        <div id="referral-success-modal" class="modal-overlay success-overlay">
+          <div class="modal-dialog success-dialog" role="dialog" aria-labelledby="referral-success-title" aria-modal="true">
+            <div class="success-content">
+              <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <h3 class="success-title" id="referral-success-title">Referral Submitted Successfully!</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Referral Slip Modal -->
+        <div id="referral-slip-modal" class="modal-overlay">
+          <div class="modal-dialog referral-slip-dialog" role="dialog" aria-labelledby="referral-slip-title" aria-modal="true">
+            <a href="#" class="modal-close" id="referral-slip-close" aria-label="Close">&times;</a>
+            <div class="referral-slip-content" id="referral-slip-content">
+              <!-- Referral slip content will be populated here -->
+            </div>
+            <div class="referral-slip-actions">
+              <button type="button" id="print-referral" class="print-icon" title="Print Referral Slip">
+                <i class="fa-solid fa-print"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -665,6 +699,62 @@
         });
       } else {
         console.log('CHECK - IN button NOT found!'); // Debug log
+      }
+      
+      // Referral submit button functionality
+      const referralSubmitBtn = document.getElementById('ref-submit');
+      if (referralSubmitBtn) {
+        referralSubmitBtn.addEventListener('click', function() {
+          console.log('Referral submit button clicked!'); // Debug log
+          
+          // Validate form (basic validation)
+          const purpose = document.getElementById('ref-purpose').value;
+          const name = document.getElementById('ref-name').value;
+          const age = document.getElementById('ref-age').value;
+          const sex = document.getElementById('ref-sex').value;
+          const address = document.getElementById('ref-address').value;
+          const referredTo = document.getElementById('ref-to').value;
+          
+          if (!purpose || !name || !age || !sex || !address || !referredTo) {
+            alert('Please fill in all required fields');
+            return;
+          }
+          
+          // Get selected requests
+          const selectedRequests = [];
+          const checkboxes = document.querySelectorAll('.ref-check input[type="checkbox"]:checked');
+          checkboxes.forEach(checkbox => {
+            const label = checkbox.parentElement.textContent.trim();
+            selectedRequests.push(label);
+          });
+          
+          // Store referral data for later use (you can expand this to save to database)
+          const referralData = {
+            patientName: name,
+            purpose: purpose,
+            referredTo: referredTo,
+            selectedRequests: selectedRequests,
+            age: age,
+            sex: sex,
+            address: address
+          };
+          
+          // For demo purposes, store in sessionStorage
+          sessionStorage.setItem('lastReferral', JSON.stringify(referralData));
+          
+          // Show referral success modal
+          document.getElementById('referral-success-modal').style.display = 'flex';
+          
+          // Auto-hide after 2.5 seconds
+          setTimeout(function() {
+            document.getElementById('referral-success-modal').style.display = 'none';
+          }, 2500);
+          
+          // Reset form
+          document.getElementById('referral-form').reset();
+        });
+      } else {
+        console.log('Referral submit button NOT found!'); // Debug log
       }
       
       // Filter functionality
@@ -830,6 +920,143 @@
       const visibleRows = document.querySelectorAll('#referral-table tbody tr:not([style*="display: none"])');
       console.log(`Referral filter applied: ${visibleRows.length} results found`);
     }
+    
+    // Function to show referral slip modal
+    function showReferralSlip(patientName, purpose, referredTo, selectedRequests = []) {
+      const modalContent = document.getElementById('referral-slip-content');
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString('en-US', { 
+        month: 'numeric', 
+        day: 'numeric', 
+        year: '2-digit' 
+      });
+      
+      // Pull additional data from saved referral if available
+      let ageVal = '';
+      let sexVal = '';
+      let addressVal = '';
+      try {
+        const storedReferral = sessionStorage.getItem('lastReferral');
+        if (storedReferral) {
+          const referralData = JSON.parse(storedReferral);
+          if (referralData.patientName === patientName) {
+            ageVal = referralData.age || '';
+            sexVal = referralData.sex ? (referralData.sex.charAt(0).toUpperCase() + referralData.sex.slice(1)) : '';
+            addressVal = referralData.address || '';
+            if (selectedRequests.length === 0) {
+              selectedRequests = referralData.selectedRequests || [];
+            }
+          }
+        }
+      } catch (e) {
+        console.log('No stored referral data found');
+      }
+      
+      modalContent.innerHTML = `
+        <div class="referral-slip-header">
+          <div class="institution-name">UNIVERSITY OF CEBU - MAIN CAMPUS</div>
+          <div class="department-name">MEDICAL - DENTAL CLINIC</div>
+          <div class="institution-address">Osmena Blvd. Corner Sancianko St., Cebu City</div>
+          <div class="institution-contact">Tel. No. (032) 255-7777 Loc. 26</div>
+        </div>
+        
+        <div class="referral-title">REFERRAL SLIP</div>
+        
+        <div class="referral-details">
+          <div class="referral-form">
+            <div class="referral-line">
+              <div class="referral-field field-date">
+                <span class="referral-label">Date :</span>
+                <span class="referral-underline">${formattedDate}</span>
+              </div>
+            </div>
+
+            <div class="referral-line">
+              <div class="referral-field field-referred">
+                <span class="referral-label">Referred to :</span>
+                <span class="referral-underline">${referredTo}</span>
+              </div>
+              <div class="referral-field field-age">
+                <span class="referral-label">Age :</span>
+                <span class="referral-underline">${ageVal}</span>
+              </div>
+              <div class="referral-field field-sex">
+                <span class="referral-label">Sex :</span>
+                <span class="referral-underline">${sexVal}</span>
+              </div>
+            </div>
+
+            <div class="referral-line">
+              <div class="referral-field field-name">
+                <span class="referral-label">Name :</span>
+                <span class="referral-underline">${patientName}</span>
+              </div>
+            </div>
+
+            <div class="referral-line line-address">
+              <div class="referral-field field-address">
+                <span class="referral-label">Address :</span>
+                <span class="referral-underline">${addressVal}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="request-section">
+          <div class="request-title">REQUEST FOR :</div>
+          <div class="request-items">
+            ${selectedRequests.map(request => `
+              <div class="request-item">
+                <input type="checkbox" class="request-checkbox" checked disabled>
+                <span class="request-text">${request}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div class="physician-section">
+          <div class="physician-name">DR. ROSALINE A. ROMALES</div>
+          <div class="physician-title">University Physician</div>
+          <div class="physician-license">Lic. No. 0031349</div>
+        </div>
+        
+        <div class="verification-section">
+          <div class="verification-text">
+            The hospital may scan the QR code below for verification purposes (requires Internet connection).
+          </div>
+          <div class="verification-link">
+            Valid QR Verification Link : https://referral.ucniacare.clinic.ph/clinic/Home/ViewSL
+          </div>
+          <div class="qr-code-placeholder">
+            QR Code
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('referral-slip-modal').style.display = 'flex';
+    }
+    
+    // Event listeners for referral slip modal
+    document.addEventListener('DOMContentLoaded', function() {
+      // Close referral slip modal when clicking the close button
+      const referralSlipClose = document.getElementById('referral-slip-close');
+      if (referralSlipClose) {
+        referralSlipClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('referral-slip-modal').style.display = 'none';
+        });
+      }
+      
+
+      
+             // Print referral slip functionality
+       const printReferralBtn = document.getElementById('print-referral');
+       if (printReferralBtn) {
+         printReferralBtn.addEventListener('click', function() {
+           window.print();
+         });
+       }
+    });
   </script>
 </body>
 </html>

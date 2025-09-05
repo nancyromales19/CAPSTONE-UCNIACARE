@@ -469,7 +469,7 @@ body {
   
 
 
-   
+
 /* ===== Additional styles appended from Downloads/style.css (non-conflicting) ===== */
 /* Global Modal Styles */
 .modal-overlay { 
@@ -600,27 +600,30 @@ body {
 
 /* Global Referral Slip Modal Styles */
 .referral-slip-dialog {
-  max-width: 1200px;
-  width: 98%;
-  max-height: 98vh;
-  overflow: hidden;
+  max-width: none;
+  width: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 .referral-slip-content {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 24px 28px;
+  border-radius: 10px;
   font-family: 'Times New Roman', serif;
-  line-height: 1.2;
-  max-height: calc(98vh - 80px);
+  line-height: 1.25;
+  width: 820px;           /* fixed canvas width */
+  height: 550px;          /* fixed canvas height */
+  border: none;
   overflow: hidden;
+  position: relative;
 }
 
 .referral-slip-header {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   border-bottom: 2px solid #333;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .institution-name {
@@ -650,16 +653,16 @@ body {
 
 .referral-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 10px 0 12px 0;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .referral-details {
-  margin: 15px 0;
+  margin: 10px 0 6px 0;
 }
 
 .detail-row {
@@ -684,7 +687,7 @@ body {
 }
 
 .request-section {
-  margin: 15px 0;
+  margin: 10px 0 16px 0;
 }
 
 .request-title {
@@ -765,28 +768,44 @@ body {
 }
 
 .physician-section {
-  margin: 15px 0;
+  margin-top: 150px;
+  
+  position: absolute;
+  right: 36px; /* align with right margin nicely */
+  top: 210px; /* aligned vertically with REQUEST FOR section */
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
 }
 
 .physician-name {
-  font-weight: bold;
-  margin-bottom: 3px;
+  font-weight: 700;
+  margin-bottom: 2px;
   color: #333;
+  letter-spacing: 0.2px;
 }
 
 .physician-title {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   color: #333;
+  font-size: 12px;
 }
 
 .physician-license {
   color: #666;
+  font-size: 12px;
+  
 }
 
 .verification-section {
-  margin-top: 20px;
-  padding-top: 12px;
+  
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px; /* lowered further to add gap above the underline */
+  padding: 10px 28px 0 28px;
   border-top: 1px solid #ccc;
   text-align: center;
 }
@@ -805,11 +824,11 @@ body {
 }
 
 .qr-code-placeholder {
-  width: 100px;
-  height: 100px;
-  background: #f0f0f0;
-  border: 2px solid #ccc;
-  margin: 0 auto;
+  width: 90px;
+  height: 90px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  margin: 8px auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -936,4 +955,82 @@ body {
 .btn-view i {
   color: inherit;
   font-size: 1em;
+}
+
+/* ===== Referral Slip: exact form alignment ===== */
+/* Container for the lines of labeled fields */
+.referral-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* One horizontal line of multiple fields (e.g., Name | Age | Sex) */
+.referral-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+/* Field with fixed label and underlined value */
+.referral-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.referral-label {
+  font-weight: bold;
+  color: #333;
+  min-width: 70px; /* default label width */
+}
+
+.referral-underline {
+  flex: 0 0 auto;
+  min-width: 220px; /* default underline width for text fields */
+  border-bottom: 1px solid #333;
+  line-height: 1;
+  height: 20px; /* consistent underline height */
+}
+
+/* Specific widths per field for consistent layout */
+.referral-field.field-name   .referral-label { min-width: 55px; }
+.referral-field.field-name   .referral-underline { min-width: 420px; }
+
+.referral-field.field-age    .referral-label { min-width: 45px; }
+.referral-field.field-age    .referral-underline { min-width: 70px; }
+
+.referral-field.field-sex    .referral-label { min-width: 45px; }
+.referral-field.field-sex    .referral-underline { min-width: 110px; }
+
+/* Address sits on its own full-width line below */
+.referral-line.line-address {
+  display: flex;
+}
+
+.referral-field.field-address .referral-label { min-width: 70px; }
+.referral-field.field-address .referral-underline { flex: 1 1 auto; min-width: 400px; }
+
+/* Referred to, used alongside Age and Sex on one line */
+.referral-field.field-referred .referral-label { min-width: 95px; }
+.referral-field.field-referred .referral-underline { min-width: 320px; }
+
+/* Date field sizing */
+.referral-field.field-date .referral-label { min-width: 55px; }
+.referral-field.field-date .referral-underline { min-width: 140px; }
+
+/* Tightened typography to match printed form feel */
+.referral-slip-content .referral-label,
+.referral-slip-content .referral-underline {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Spacing utilities for sections */
+.referral-group { margin-top: 6px; }
+
+/* Print consistency */
+@media print {
+  .referral-underline { border-bottom-color: #000; }
 }
