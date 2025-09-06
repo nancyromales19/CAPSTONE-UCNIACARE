@@ -1,0 +1,173 @@
+ /* Emergency Hotlines Styles */
+    .emergency-section {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .clinic-section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .clinic-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .clinic-header i {
+      color: #e74c3c;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    .clinic-header h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    .clinic-subtitle {
+      color: #7f8c8d;
+      font-size: 13px;
+      margin-left: 30px;
+      margin-top: -5px;
+      margin-bottom: 20px;
+    }
+
+    .clinic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .clinic-card {
+      background: #F3F7FD;
+      border: 1px solid #3778A6;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .campus-name {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .phone-number {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 12px;
+    }
+
+    .call-btn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .call-btn:hover {
+      background: #c0392b;
+    }
+
+    .other-emergency {
+      margin-top: 40px;
+    }
+
+    .other-emergency h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .emergency-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .hospital-name {
+      font-size: 16px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .emergency-phone {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .emergency-call-btn {
+      background: transparent;
+      color: #e74c3c;
+      border: 2px solid #e74c3c;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .emergency-call-btn:hover {
+      background: #e74c3c;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .clinic-grid,
+      .emergency-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
