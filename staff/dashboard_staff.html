@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Example</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="dashboard_nurse.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button class="hamburger" id="hamburger">☰</button>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="../images/dark_logo.png" alt="Logo">
+      </div>
+
+      <!-- Menu -->
+      <nav class="menu">
+        <ul>
+          <li><a href="dashboard_staff.html" class="active"><i class = "fa-solid fa-house"></i>Dashboard</a></li>
+          <li><a href="patients_staff.html"><i class = "fa-solid fa-users"></i>Patients</a></li>
+          <li><a href="inventory_staff.html"><i class = "fa-solid fa-box"></i>Inventory</a></li>
+          <li><a href="settings_staff.html"><i class = "fa-solid fa-gear"></i>Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+      <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header Section -->
+      <header class="header">
+        <h1 class="page_title">Welcome to Dashboard !</h1>
+        
+        <div class="header-right">
+          <!-- Notification Icon -->
+          <div class="notification-icon">
+            <i class="fa-solid fa-bell"></i>
+            <span class="badge"></span>
+          </div>
+          
+          <!-- User Profile -->
+          <div class="user-profile">
+            <div class="user-avatar">HS</div>
+            <div class="user-info">
+              <p class="user-name">User fullname</p>
+              <p class="user-role">User role</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="stats-container">
+        <div class="stat-card blue">
+          <div class="stat-icon blue">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <div class="stat-info">
+            <p class="stat-label">Today's Completed List</p>
+            <p class="stat-number">25 patients</p>
+          </div>
+        </div>
+
+        <div class="stat-card green">
+          <div class="stat-icon blue">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <p class="stat-label">Total Patient Seen Today</p>
+            <p class="stat-number">30 patients</p>
+          </div>
+        </div>
+    </section>
+
+        <!-- Two empty white containers side by side -->
+        <section class="empty-containers">
+        <div class="empty-card">
+            <h2>Patient Seen by the Month of [Month]</h2>
+        </div>
+        <div class="empty-card">
+            <h2>Calendar</h2>
+        </div>
+        </section>
+
+        <!-- News & Updates Section -->
+      <section class="news-updates">
+        <div class="section-header">
+            <h2 class="section-title">News & Updates</h2>
+            <a href="news_updates.html" class="discover-link">Discover More →</a>
+        </div>
+        
+        <div class="news-grid">
+          <!-- First News Card -->
+          <div class="news-card">
+            <div class="news-image">
+              <img src="" alt="img">
+            </div>
+            <div class="news-content">
+              <h3 class="news-title">The title</h3>
+              <p class="news-excerpt">Just a brief description</p>
+              <a href="#" class="news-link">See More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Second News Card -->
+          <div class="news-card">
+            <div class="news-image">
+              <img src="" alt="img">
+            </div>
+            <div class="news-content">
+              <h3 class="news-title">Title</h3>
+              <p class="news-excerpt">Brief description</p>
+              <a href="#" class="news-link">See More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Third News Card -->
+          <div class="news-card">
+            <div class="news-image">
+              <img src="" alt="img">
+            </div>
+            <div class="news-content">
+              <h3 class="news-title">The news title</h3>
+              <p class="news-excerpt">brief description of the news or update</p>
+              <a href="#" class="news-link">See More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        
+    </main>
+  </div>
+
+</body>
+</html>

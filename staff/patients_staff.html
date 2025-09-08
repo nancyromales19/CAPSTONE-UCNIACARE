@@ -18,10 +18,10 @@
       </div>
       <nav class="menu" id="menu">
         <ul>
-          <li><a href="#" id="nav-dashboard"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+          <li><a href="dashboard_staff.html" id="nav-dashboard"><i class="fa-solid fa-house"></i>Dashboard</a></li>
           <li><a href="patients_staff.html" id="nav-patients" style="background:#e6f0ff;color:#0056b3;"><i class="fa-solid fa-users"></i>Patients</a></li>
           <li><a href="inventory_staff.html" id="nav-inventory"><i class="fa-solid fa-box"></i>Inventory</a></li>
-          <li><a href="#" id="nav-settings"><i class="fa-solid fa-gear"></i>Settings</a></li>
+          <li><a href="settings_staff.html" id="nav-settings"><i class="fa-solid fa-gear"></i>Settings</a></li>
         </ul>
       </nav>
     </aside>
@@ -399,6 +399,172 @@
           </div>
         </section>
         
+        <!-- Basic Assessment Section -->
+        <section class="card" id="basic-assessment-card" style="display: none;">
+          <div class="basic-assessment-header">
+            <h2>Basic Assessment</h2>
+          </div>
+          
+          <!-- Queue Section -->
+          <div class="assessment-queue">
+            <div class="queue-section-title">Queue</div>
+            <div class="queue-cards">
+              <div class="queue-card">
+                <div class="queue-info">
+                  <div class="queue-number">Queue #1</div>
+                  <div class="patient-name">Nancy Romales</div>
+                  <div class="assessment-type">Physical Examination</div>
+                </div>
+                <button class="assess-btn">Assess</button>
+              </div>
+              <div class="queue-card">
+                <div class="queue-info">
+                  <div class="queue-number">Queue #2</div>
+                  <div class="patient-name">Wincy Romales</div>
+                  <div class="assessment-type">Medical Certificate</div>
+                </div>
+                <button class="assess-btn">Assess</button>
+              </div>
+              <div class="queue-card">
+                <div class="queue-info">
+                  <div class="queue-number">Queue #3</div>
+                  <div class="patient-name">Glenn Romales</div>
+                  <div class="assessment-type">Consultation</div>
+                </div>
+                <button class="assess-btn">Assess</button>
+              </div>
+              <div class="queue-card">
+                <div class="queue-info">
+                  <div class="queue-number">Queue #4</div>
+                  <div class="patient-name">Rachelle Fiel</div>
+                  <div class="assessment-type">Annual Physical Examination</div>
+                </div>
+                <button class="assess-btn">Assess</button>
+              </div>
+            </div>
+            <div class="queue-navigation">
+              <button class="nav-arrow">&lt;</button>
+              <button class="nav-arrow">&gt;</button>
+            </div>
+          </div>
+          
+          <!-- Patient Information Section -->
+          <div class="patient-information-section">
+            <div class="patient-info-grid">
+              <div class="info-column">
+                <div class="info-field">
+                  <div class="info-label">NAME:</div>
+                  <div class="info-value underlined">Nancy Romales</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">ADDRESS:</div>
+                  <div class="info-value underlined">Sitio Guinabsan, Basak San Nicolas</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">CONTACT NO:</div>
+                  <div class="info-value underlined" style="color: red;">09310159072</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label" style="color: red;">In case of emergency, pls notify:</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">NAME OF PARENT / GUARDIAN:</div>
+                  <div class="info-value underlined">Glenacy Romales</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">TEL. NO / CELL NO.:</div>
+                  <div class="info-value underlined">09225265408</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">RELATIONSHIP:</div>
+                  <div class="info-value underlined">Mother</div>
+                </div>
+              </div>
+              <div class="info-column">
+                <div class="info-field">
+                  <div class="info-label">I.D. NO:</div>
+                  <div class="info-value underlined">22599559</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">AGE:</div>
+                  <div class="info-value underlined">21</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">SEX:</div>
+                  <div class="info-value underlined">Female</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">STATUS:</div>
+                  <div class="info-value underlined">Single</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">BIRTHDATE:</div>
+                  <div class="info-value underlined">09/10/03</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">COURSE & YR:</div>
+                  <div class="info-value underlined">BSIT - 4</div>
+                </div>
+                <div class="info-field">
+                  <div class="info-label">TOA:</div>
+                  <input type="text" class="info-input" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Vital Signs Section -->
+          <div class="vital-signs-section">
+            <h3>Vital Signs</h3>
+            <div class="vital-signs-grid">
+              <div class="vital-field">
+                <div class="vital-label">Blood Pressure *</div>
+                <input type="text" class="vital-input" placeholder="">
+              </div>
+              <div class="vital-field">
+                <div class="vital-label">Pulse Rate *</div>
+                <input type="text" class="vital-input" placeholder="">
+              </div>
+              <div class="vital-field">
+                <div class="vital-label">Temperature *</div>
+                <input type="text" class="vital-input" placeholder="">
+              </div>
+              <div class="vital-field">
+                <div class="vital-label">SP02 *</div>
+                <input type="text" class="vital-input" placeholder="">
+              </div>
+              <div class="vital-field">
+                <div class="vital-label">RR *</div>
+                <input type="text" class="vital-input" placeholder="">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Anthropometric Measurements Section -->
+          <div class="anthropometric-section">
+            <h3>Anthropometric Measurements</h3>
+            <div class="anthropometric-grid">
+              <div class="anthropometric-field">
+                <div class="anthropometric-label">Height *</div>
+                <input type="text" class="anthropometric-input" placeholder="">
+              </div>
+              <div class="anthropometric-field">
+                <div class="anthropometric-label">Weight *</div>
+                <input type="text" class="anthropometric-input" placeholder="">
+              </div>
+              <div class="anthropometric-field">
+                <div class="anthropometric-label">BMI *</div>
+                <input type="text" class="anthropometric-input" placeholder="">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="assessment-actions">
+            <button class="submit-assessment-btn">SUBMIT</button>
+          </div>
+        </section>
+        
         <!-- Check-in Modal (CSS-only via :target) -->
         <div id="checkin-modal" class="modal-overlay">
           <div class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
@@ -561,6 +727,7 @@
       document.getElementById('queue-card').style.display = 'block';
       document.getElementById('clinic-logs-card').style.display = 'none';
       document.getElementById('referral-card').style.display = 'none';
+      document.getElementById('basic-assessment-card').style.display = 'none';
     });
     
     document.getElementById('tab-cliniclogs').addEventListener('click', function(e) {
@@ -574,6 +741,7 @@
       document.getElementById('clinic-logs-card').style.display = 'block';
       document.getElementById('queue-card').style.display = 'none';
       document.getElementById('referral-card').style.display = 'none';
+      document.getElementById('basic-assessment-card').style.display = 'none';
     });
     
     document.getElementById('tab-referral').addEventListener('click', function(e) {
@@ -587,6 +755,21 @@
       document.getElementById('referral-card').style.display = 'block';
       document.getElementById('clinic-logs-card').style.display = 'none';
       document.getElementById('queue-card').style.display = 'none';
+      document.getElementById('basic-assessment-card').style.display = 'none';
+    });
+
+    document.getElementById('tab-basic').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Update active tab
+      document.querySelectorAll('#patients-tabs a').forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show basic assessment section, hide others
+      document.getElementById('basic-assessment-card').style.display = 'block';
+      document.getElementById('clinic-logs-card').style.display = 'none';
+      document.getElementById('queue-card').style.display = 'none';
+      document.getElementById('referral-card').style.display = 'none';
     });
 
     // Referral inner tabs
@@ -1056,6 +1239,168 @@
            window.print();
          });
        }
+      
+      // Basic Assessment functionality
+      const assessButtons = document.querySelectorAll('.assess-btn');
+      assessButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Get patient data from the queue card
+          const queueCard = this.closest('.queue-card');
+          const patientName = queueCard.querySelector('.patient-name').textContent;
+          const assessmentType = queueCard.querySelector('.assessment-type').textContent;
+          
+          // Update patient information section with the selected patient
+          updatePatientInfo(patientName, assessmentType);
+          
+          // Scroll to patient information section
+          document.querySelector('.patient-information-section').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      });
+      
+      // Submit assessment functionality
+      const submitAssessmentBtn = document.querySelector('.submit-assessment-btn');
+      if (submitAssessmentBtn) {
+        submitAssessmentBtn.addEventListener('click', function() {
+          // Validate required fields
+          const requiredFields = document.querySelectorAll('.vital-input, .anthropometric-input');
+          let isValid = true;
+          
+          requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+              field.style.borderColor = '#dc2626';
+              isValid = false;
+            } else {
+              field.style.borderColor = '#d1d5db';
+            }
+          });
+          
+          if (!isValid) {
+            alert('Please fill in all required fields (marked with *)');
+            return;
+          }
+          
+          // Show success message
+          alert('Assessment submitted successfully!');
+          
+          // Reset form
+          requiredFields.forEach(field => {
+            field.value = '';
+          });
+        });
+      }
+      
+      // Function to update patient information
+      function updatePatientInfo(patientName, assessmentType) {
+        // Sample patient data - in a real app, this would come from a database
+        const patientData = {
+          'Nancy Romales': {
+            name: 'Nancy Romales',
+            address: 'Sitio Guinabsan, Basak San Nicolas',
+            contact: '09310159072',
+            guardian: 'Glenacy Romales',
+            guardianContact: '09225265408',
+            relationship: 'Mother',
+            id: '22599559',
+            age: '21',
+            sex: 'Female',
+            status: 'Single',
+            birthdate: '09/10/03',
+            course: 'BSIT - 4'
+          },
+          'Wincy Romales': {
+            name: 'Wincy Romales',
+            address: 'Sitio Guinabsan, Basak San Nicolas',
+            contact: '09310159073',
+            guardian: 'Glenacy Romales',
+            guardianContact: '09225265408',
+            relationship: 'Mother',
+            id: '22599560',
+            age: '19',
+            sex: 'Female',
+            status: 'Single',
+            birthdate: '05/15/05',
+            course: 'BSHM - 2'
+          },
+          'Glenn Romales': {
+            name: 'Glenn Romales',
+            address: 'Sitio Guinabsan, Basak San Nicolas',
+            contact: '09310159074',
+            guardian: 'Glenacy Romales',
+            guardianContact: '09225265408',
+            relationship: 'Mother',
+            id: '22599561',
+            age: '23',
+            sex: 'Male',
+            status: 'Single',
+            birthdate: '03/20/01',
+            course: 'BSCS - 4'
+          },
+          'Rachelle Fiel': {
+            name: 'Rachelle Fiel',
+            address: 'Cebu City',
+            contact: '09310159075',
+            guardian: 'Maria Fiel',
+            guardianContact: '09225265409',
+            relationship: 'Mother',
+            id: '22599562',
+            age: '20',
+            sex: 'Female',
+            status: 'Single',
+            birthdate: '08/12/04',
+            course: 'BEED - 3'
+          }
+        };
+        
+        const patient = patientData[patientName];
+        if (patient) {
+          // Update patient information fields
+          const infoFields = document.querySelectorAll('.info-value');
+          infoFields.forEach(field => {
+            const label = field.previousElementSibling.textContent;
+            switch(label) {
+              case 'NAME:':
+                field.textContent = patient.name;
+                break;
+              case 'ADDRESS:':
+                field.textContent = patient.address;
+                break;
+              case 'CONTACT NO:':
+                field.textContent = patient.contact;
+                break;
+              case 'NAME OF PARENT / GUARDIAN:':
+                field.textContent = patient.guardian;
+                break;
+              case 'TEL. NO / CELL NO.:':
+                field.textContent = patient.guardianContact;
+                break;
+              case 'RELATIONSHIP:':
+                field.textContent = patient.relationship;
+                break;
+              case 'I.D. NO:':
+                field.textContent = patient.id;
+                break;
+              case 'AGE:':
+                field.textContent = patient.age;
+                break;
+              case 'SEX:':
+                field.textContent = patient.sex;
+                break;
+              case 'STATUS:':
+                field.textContent = patient.status;
+                break;
+              case 'BIRTHDATE:':
+                field.textContent = patient.birthdate;
+                break;
+              case 'COURSE & YR:':
+                field.textContent = patient.course;
+                break;
+            }
+          });
+        }
+      }
     });
   </script>
 </body>
