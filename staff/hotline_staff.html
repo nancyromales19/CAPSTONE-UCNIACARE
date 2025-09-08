@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Example</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="hotline.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button class="hamburger" id="hamburger">☰</button>
+
+  <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="../images/dark_logo.png" alt="Logo">
+        </div>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <ul>
+                <li><a href="dashboard_staff.html"><i class = "fa-solid fa-house"></i>Dashboard</a></li>
+                <li><a href="patients_staff.html"><i class = "fa-solid fa-users"></i>Patients</a></li>
+                <li><a href="inventory_staff.html"><i class = "fa-solid fa-box"></i>Inventory</a></li>
+                <li><a href="hotline_staff.html" class="active"><i class = "fas fa-phone-alt"></i>Hotlines</a></li>
+                <li><a href="settings_staff.html"><i class = "fa-solid fa-gear"></i>Settings</a></li>
+            </ul>
+        </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="page_title">Emergency Hotlines</h1>
+            
+            
+            <div class="header-right">
+            <!-- Notification Icon -->
+            <div class="notification-icon">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge"></span>
+            </div>
+            
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">HS</div>
+                <div class="user-info">
+                <p class="user-name">User fullname</p>
+                <p class="user-role">User role</p>
+                </div>
+            </div>
+            </div>
+        </header>
+             <!-- School Clinic Contact Section -->
+        <div class="clinic-section">
+          <div class="clinic-header">
+            <i class="fa-solid fa-phone"></i>
+            <h3>School Clinic Contact</h3>
+          </div>
+          <p class="clinic-subtitle">Primary emergency response</p>
+          
+          <div class="clinic-grid">
+            <div class="clinic-card">
+              <p class="campus-name">University of Cebu - Main Campus</p>
+              <p class="phone-number">032-648-999</p>
+              <button class="call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="clinic-card">
+              <p class="campus-name">University of Cebu - METC Campus</p>
+              <p class="phone-number">032-648-999</p>
+              <button class="call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="clinic-card">
+              <p class="campus-name">University of Cebu - Banilad Campus</p>
+              <p class="phone-number">032-648-999</p>
+              <button class="call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="clinic-card">
+              <p class="campus-name">University of Cebu - Pueblo Tukiay Campus</p>
+              <p class="phone-number">032-648-999</p>
+              <button class="call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Other Emergency Contacts -->
+        <div class="other-emergency">
+          <h3>Other Emergency Contacts</h3>
+          
+          <div class="emergency-grid">
+            <div class="emergency-card">
+              <p class="hospital-name">Cebu Doctor's Hospital</p>
+              <p class="emergency-phone">032-648-999</p>
+              <button class="emergency-call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="emergency-card">
+              <p class="hospital-name">Vicente Sotto Memorial</p>
+              <p class="emergency-phone">032-648-999</p>
+              <button class="emergency-call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="emergency-card">
+              <p class="hospital-name">Emergency Rescue (Red Cross)</p>
+              <p class="emergency-phone">032-648-999</p>
+              <button class="emergency-call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+            
+            <div class="emergency-card">
+              <p class="hospital-name">Chong Hua Hospital</p>
+              <p class="emergency-phone">032-648-999</p>
+              <button class="emergency-call-btn" onclick="makeCall('032-648-999')">Call Now</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+        </main>
+    </div>
+
+</body>
+</html>
